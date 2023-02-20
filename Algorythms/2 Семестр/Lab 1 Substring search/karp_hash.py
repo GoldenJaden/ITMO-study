@@ -6,7 +6,8 @@ def hash(stroka: str, alphabet) -> int:
     for i in range(m):
         h += int(list(alphabet).index(stroka[i]))*x**(i)
     return h
-def karp(text, pattern):
+
+def karp(text: str, pattern: str) -> int:
     alphabet = list(set(text))
     cnt = 0
     hash_template = hash(pattern, alphabet)

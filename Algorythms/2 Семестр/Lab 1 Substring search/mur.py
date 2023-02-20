@@ -4,8 +4,8 @@ def mur(example: str, pattern: str) -> int:
     offsets = [None for i in range(len(pattern))]
     cnt = 0
     pb = pattern[::-1]
-    for i in range(1, len(pattern)+1):
-        compl = (pb[1:] + pb[0])[:i-1]
+    for i in range(1, len(pattern) + 1):  # filling the offset list
+        compl = (pb[1:] + pb[0])[:i - 1]
         j = pb[i % len(pb)]
         if pb[i % len(pb)] not in compl:
             offsets[i % len(pattern)] = i
@@ -14,7 +14,7 @@ def mur(example: str, pattern: str) -> int:
     offsets = offsets[::-1]
     offsets.append(len(pattern))
     p = len(pattern) - 1
-    while p < len(example):
+    while p < len(example):  # the main algorythm
         j = len(pattern) - 1
         while j >= 0:
             if p >= len(example):
@@ -33,6 +33,8 @@ def mur(example: str, pattern: str) -> int:
         else:
             j = len(pattern) - 1
     return cnt
+
+
 example1 = 'abcaabkab'
 template1 = 'ab'
 print(mur(example1, template1))
