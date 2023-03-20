@@ -1,17 +1,24 @@
-n = 53
-coins = [[10, 10], [5, 5, 5], [3, 3, 3, 3, 3], [2, 2, 2], [1]]
-ans = []
-change = 0
-while change != n:
-    flag = False
-    for i in range(len(coins)):
-        if len(coins[i]) != 0 and change + coins[i][0] <= n:
-            change += coins[i][0]
-            ans.append(coins[i][0])
-            coins[i].pop()
-            flag = True
-            break
-    if not flag:
-        break
-print(change, ans)
-print(coins)
+M1 = 5
+S1 = 5
+
+M2 = 5
+S2 = 2
+
+M3 = 5
+S3 = 1
+
+M4 = 4
+S4 = 10
+
+N = 50 #сдача пользователю
+res = []
+
+a = [[S1, M1], [S2, M2], [S3, M3], [S4, M4]]
+a.sort(reverse=True)
+
+for i in range(len(a)):
+    while (N-a[i][0] >= 0) and (a[i][1] != 0):
+        N -= a[i][0]
+        res.append(a[i][0])
+        a[i][1] -= 1
+print(res)
