@@ -21,4 +21,4 @@ for i in range(len(a)):
         N -= a[i][0]
         res.append(a[i][0])
         a[i][1] -= 1
-print(res)
+print(*res)
