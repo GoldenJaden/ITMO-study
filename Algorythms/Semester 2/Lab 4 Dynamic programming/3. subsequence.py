@@ -8,6 +8,9 @@ cur = 1
 for i in range(n - 1):
     if N[i] < N[i+1]:
         cur += 1
+        if i == n:
+            if cur > len(res):
+                res = N[i - cur + 1: i]
     else:
         if cur > len(res):
             res = N[i - cur + 1: i]
